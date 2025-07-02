@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python/
+env/
+venv/
+*.env
+
+
+# Node.js
+node_modules/
+pm-debug.log
+yarn-debug.log
+
+# Flask
+.flaskenv
+
+# IDE specific files
+.idea/
+.vscode/
+.trae/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+Thumbs.db

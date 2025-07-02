@@ -1,0 +1,17 @@
+{
+  "name": "bandboost",
+  "version": "1.0.0",
+  "description": "AI-powered IELTS Writing feedback tool",
+  "main": "index.js",
+  "scripts": {
+    "build:css": "tailwindcss -i ./frontend/input.css -o ./frontend/output.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.3.3",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.31"
+  }
+}
