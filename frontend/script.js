@@ -4,7 +4,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const userEssayInput = document.getElementById('userEssay');
     const resultsDiv = document.getElementById('results');
     const bandScoreSpan = document.getElementById('bandScore');
-    const feedbackSpan = document.getElementById('feedback');
+    const taskAchievementSpan = document.getElementById('taskAchievement');
+    const coherenceCohesionSpan = document.getElementById('coherenceCohesion');
+    const lexicalResourceSpan = document.getElementById('lexicalResource');
+    const grammaticalAccuracySpan = document.getElementById('grammaticalAccuracy');
+    const overallFeedbackSpan = document.getElementById('overallFeedback');
 
     analyzeButton.addEventListener('click', async () => {
         const taskQuestion = taskQuestionInput.value;
@@ -31,7 +35,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = await response.json();
 
             bandScoreSpan.textContent = data.band_score;
-            feedbackSpan.textContent = data.feedback;
+            taskAchievementSpan.textContent = data.feedback.task_achievement;
+            coherenceCohesionSpan.textContent = data.feedback.coherence_cohesion;
+            lexicalResourceSpan.textContent = data.feedback.lexical_resource;
+            grammaticalAccuracySpan.textContent = data.feedback.grammatical_accuracy;
+            overallFeedbackSpan.textContent = data.feedback.overall_feedback;
             resultsDiv.classList.remove('hidden');
         } catch (error) {
             console.error('Error:', error);
