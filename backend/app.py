@@ -32,24 +32,61 @@ Task Question: {task_question}
 
 User Essay: {user_essay}
 
-Please provide a band score and detailed feedback focusing on Task Achievement, Coherence and Cohesion, Lexical Resource, and Grammatical Range and Accuracy. Format your response as follows:
+Please provide a band score and detailed feedback based on the IELTS public band descriptors. Structure your response as follows:
 
 Band Score: [Your Band Score]/9
-Feedback: [Your detailed feedback here]"""
+
+Feedback:
+Task Achievement: [Feedback on Task Achievement]
+Coherence and Cohesion: [Feedback on Coherence and Cohesion]
+Lexical Resource: [Feedback on Lexical Resource]
+Grammatical Range and Accuracy: [Feedback on Grammatical Range and Accuracy]
+
+Overall Feedback: [Overall summary feedback]"""
 
         response = model.generate_content(prompt)
         feedback_text = response.text
 
         # Extract band score and feedback from the generated text
         band_score_line = next((line for line in feedback_text.split('\n') if 'Band Score:' in line), None)
-        feedback_content = next((line for line in feedback_text.split('\n') if 'Feedback:' in line), None)
-
         band_score = band_score_line.replace('Band Score:', '').strip() if band_score_line else 'N/A'
-        feedback = feedback_content.replace('Feedback:', '').strip() if feedback_content else 'No feedback generated.'
+
+        feedback_lines = feedback_text.split('\n')
+        feedback_start_index = -1
+        for i, line in enumerate(feedback_lines):
+            if 'Feedback:' in line:
+                feedback_start_index = i
+                break
+
+        task_achievement = 'N/A'
+        coherence_cohesion = 'N/A'
+        lexical_resource = 'N/A'
+        grammatical_accuracy = 'N/A'
+        overall_feedback = 'N/A'
+
+        if feedback_start_index != -1:
+            for i in range(feedback_start_index + 1, len(feedback_lines)):
+                line = feedback_lines[i].strip()
+                if line.startswith('Task Achievement:'):
+                    task_achievement = line.replace('Task Achievement:', '').strip()
+                elif line.startswith('Coherence and Cohesion:'):
+                    coherence_cohesion = line.replace('Coherence and Cohesion:', '').strip()
+                elif line.startswith('Lexical Resource:'):
+                    lexical_resource = line.replace('Lexical Resource:', '').strip()
+                elif line.startswith('Grammatical Range and Accuracy:'):
+                    grammatical_accuracy = line.replace('Grammatical Range and Accuracy:', '').strip()
+                elif line.startswith('Overall Feedback:'):
+                    overall_feedback = line.replace('Overall Feedback:', '').strip()
 
         return jsonify({
             'band_score': band_score,
-            'feedback': feedback
+            'feedback': {
+                'task_achievement': task_achievement,
+                'coherence_cohesion': coherence_cohesion,
+                'lexical_resource': lexical_resource,
+                'grammatical_accuracy': grammatical_accuracy,
+                'overall_feedback': overall_feedback
+            }
         })
     except Exception as e:
         print(f"Error during Gemini API call: {e}")
