@@ -3,7 +3,6 @@ from flask import Flask, request, jsonify
 from dotenv import load_dotenv
 import google.generativeai as genai
 from flask_cors import CORS
-
 load_dotenv()
 
 app = Flask(__name__)
@@ -22,6 +21,16 @@ def analyze_essay():
     user_essay = data.get('user_essay')
 
     if not task_question or not user_essay:
+        response_data = {
+            'band_score': band_score,
+            'feedback': {
+                'task_achievement': task_achievement,
+                'coherence_cohesion': coherence_cohesion,
+                'lexical_resource': lexical_resource,
+                'grammatical_accuracy': grammatical_accuracy,
+                'overall_feedback': overall_feedback
+            }
+        }
         return jsonify({'error': 'Missing task question or user essay'}), 400
 
     try:
@@ -76,7 +85,21 @@ Overall Feedback: [Overall summary feedback]"""
                 elif line.startswith('Grammatical Range and Accuracy:'):
                     grammatical_accuracy = line.replace('Grammatical Range and Accuracy:', '').strip()
                 elif line.startswith('Overall Feedback:'):
-                    overall_feedback = line.replace('Overall Feedback:', '').strip()
+                    # Find the last occurrence of 'Overall Feedback:' to handle cases where it's repeated
+                    overall_feedback_start_line = -1
+                    for k in range(i, len(feedback_lines)):
+                        if feedback_lines[k].strip().startswith('Overall Feedback:'):
+                            overall_feedback_start_line = k
+
+                    if overall_feedback_start_line != -1:
+                        overall_feedback_content = []
+                        for j in range(overall_feedback_start_line + 1, len(feedback_lines)):
+                            overall_feedback_content.append(feedback_lines[j].strip())
+                        overall_feedback = ' '.join(overall_feedback_content).strip()
+                        # Remove any leading 'Overall Feedback:' if it's still present
+                        if overall_feedback.startswith('Overall Feedback:'):
+                            overall_feedback = overall_feedback.replace('Overall Feedback:', '', 1).strip()
+                    break # Exit loop once overall feedback is found
 
         return jsonify({
             'band_score': band_score,
