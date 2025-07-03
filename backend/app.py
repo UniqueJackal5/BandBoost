@@ -26,7 +26,7 @@ def analyze_essay():
 
     try:
         model = genai.GenerativeModel('gemini-1.5-flash')
-        prompt = f"""You are an AI assistant specialized in evaluating IELTS Academic Writing Task 2 essays. Your goal is to provide a band score (from 0-9) and constructive feedback based on the IELTS public band descriptors.
+        prompt = f"""You are an AI assistant specialized in evaluating IELTS Academic Writing Task 2 essays. Your goal is to act as a highly experienced IELTS examiner. Provide a band score (from 0-9, including half bands like 6.5) and comprehensive, constructive feedback based *strictly* on the official IELTS public band descriptors for Task Achievement, Coherence and Cohesion, Lexical Resource, and Grammatical Range and Accuracy. Ensure your assessment is fair, consistent, and detailed, explaining *why* a particular score is given for each criterion and offering actionable advice for improvement.
 
 Task Question: {task_question}
 
