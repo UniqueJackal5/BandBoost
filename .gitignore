@@ -10,9 +10,13 @@ venv/
 
 
 # Node.js
+node_modules
 node_modules/
 pm-debug.log
 yarn-debug.log
+
+# dotenv environment variables file
+.env
 
 # Flask
 .flaskenv
