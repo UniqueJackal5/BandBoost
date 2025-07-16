@@ -4,14 +4,17 @@
   "description": "AI-powered IELTS Writing feedback tool",
   "main": "index.js",
   "scripts": {
-    "build:css": "tailwindcss -i ./frontend/input.css -o ./frontend/output.css --watch"
+    "build:css": "tailwindcss -i ./frontend/input.css -o ./frontend/output.css --watch",
+    "build": "tailwindcss -i ./frontend/input.css -o ./frontend/output.css",
+    "start": "http-server ./frontend"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "tailwindcss": "^3.3.3",
     "autoprefixer": "^10.4.16",
-    "postcss": "^8.4.31"
+    "http-server": "^14.1.1",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.3.3"
   }
 }
