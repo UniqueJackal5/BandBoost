@@ -1,4 +1,4 @@
-    document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
     const analyzeButton = document.getElementById('analyzeButton');
     const startButton = document.getElementById('startButton');
     const getQuestionButton = document.getElementById('getQuestionButton');
@@ -21,6 +21,7 @@
     const historyDiv = document.getElementById('history');
     const historyContainer = document.getElementById('historyContainer');
     const clearHistoryButton = document.getElementById('clearHistoryButton');
+    const viewHistoryButton = document.getElementById('viewHistoryButton');
 
     let timerInterval;
     let timeRemaining = 2400; // 40 minutes in seconds
@@ -175,6 +176,13 @@
         }
     });
 
+    viewHistoryButton.addEventListener('click', () => {
+        if (essayHistory.length > 0) {
+            historyDiv.classList.toggle('hidden');
+        } else {
+            alert('You have no essay history yet. Analyze an essay to create history.');
+        }
+    });
 
     // Initialize
     updateTimerDisplay();
