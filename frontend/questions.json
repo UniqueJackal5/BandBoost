@@ -1,0 +1,23 @@
+
+{
+  "task1": [
+    {
+      "id": 1,
+      "question": "The chart below shows the changes in three different areas of crime in Manchester city centre from 2003-2012. Summarise the information by selecting and reporting the main features, and make comparisons where relevant."
+    },
+    {
+      "id": 2,
+      "question": "The two maps below show an island, before and after the construction of some tourist facilities. Summarise the information by selecting and reporting the main features, and make comparisons where relevant."
+    }
+  ],
+  "task2": [
+    {
+      "id": 1,
+      "question": "Some people believe that it is best to accept a bad situation, such as an unsatisfactory job or shortage of money. Others argue that it is better to try and improve such situations. Discuss both these views and give your own opinion."
+    },
+    {
+      "id": 2,
+      "question": "Some people think that all university students should study whatever they like. Others believe that they should only be allowed to study subjects that will be useful in the future, such as those related to science and technology. Discuss both these views and give your own opinion."
+    }
+  ]
+}

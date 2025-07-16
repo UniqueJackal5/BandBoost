@@ -11,30 +11,70 @@
         <h1 class="text-4xl font-extrabold text-center text-gray-900 mb-8">BandBoost - IELTS Writing Analyzer</h1>
 
         <div class="mb-6">
-            <label for="taskQuestion" class="block text-lg font-semibold text-gray-700 mb-2">IELTS Writing Task Question:</label>
+            <div class="flex justify-between items-center mb-2">
+                <label for="taskQuestion" class="block text-lg font-semibold text-gray-700">IELTS Writing Task Question:</label>
+                <div class="flex gap-4">
+                    <select id="taskType" class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md p-3">
+                        <option value="task1">Task 1</option>
+                        <option value="task2">Task 2</option>
+                    </select>
+                    <button id="getQuestionButton" class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50 transition duration-150 ease-in-out text-lg">
+                        Get Question
+                    </button>
+                </div>
+            </div>
             <textarea id="taskQuestion" class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md p-3 h-36 resize-y transition duration-150 ease-in-out" placeholder="Enter the IELTS writing task question here..."></textarea>
         </div>
 
         <div class="mb-8">
-            <label for="userEssay" class="block text-lg font-semibold text-gray-700 mb-2">Your Essay:</label>
-            <textarea id="userEssay" class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md p-3 h-72 resize-y transition duration-150 ease-in-out" placeholder="Paste your essay here..."></textarea>
+            <div class="flex justify-between items-center mb-2">
+                <label for="userEssay" class="block text-lg font-semibold text-gray-700">Your Essay:</label>
+                <div id="timer" class="text-lg font-semibold text-gray-700">40:00</div>
+            </div>
+            <textarea id="userEssay" class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md p-3 h-72 resize-y transition duration-150 ease-in-out" placeholder="Paste your essay here..." disabled></textarea>
         </div>
 
-        <button id="analyzeButton" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-150 ease-in-out text-lg">
-            Analyze Essay
-        </button>
+        <div class="flex gap-4">
+            <button id="startButton" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 transition duration-150 ease-in-out text-lg">
+                Start Timer
+            </button>
+            <button id="analyzeButton" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-150 ease-in-out text-lg">
+                Analyze Essay
+            </button>
+        </div>
 
         <div id="results" class="mt-10 p-6 bg-blue-50 rounded-lg shadow-inner border border-blue-200 hidden">
             <h2 class="text-2xl font-bold text-blue-800 mb-5">Analysis Results:</h2>
-            <p class="text-lg text-gray-700 mb-3"><strong class="font-semibold text-blue-700">Band Score:</strong> <span id="bandScore" class="ml-2 text-blue-900 text-xl font-bold"></span></p>
+            <p class="text-lg text-gray-700 mb-3"><strong class="font-semibold text-blue-700">Overall Band Score:</strong> <span id="bandScore" class="ml-2 text-blue-900 text-xl font-bold"></span></p>
+            <p class="text-lg text-gray-700 mb-3"><strong class="font-semibold text-blue-700">Word Count:</strong> <span id="wordCount" class="ml-2 text-blue-900 text-xl font-bold"></span></p>
             <div class="mt-6 pt-4 border-t border-blue-200">
                 <h3 class="text-xl font-bold text-blue-800 mb-3">Detailed Feedback:</h3>
-                <p class="text-gray-700 mb-2"><strong class="font-semibold text-blue-700">Task Achievement:</strong> <span id="taskAchievement" class="ml-2"></span></p>
-                <p class="text-gray-700 mb-2"><strong class="font-semibold text-blue-700">Coherence and Cohesion:</strong> <span id="coherenceCohesion" class="ml-2"></span></p>
-                <p class="text-gray-700 mb-2"><strong class="font-semibold text-blue-700">Lexical Resource:</strong> <span id="lexicalResource" class="ml-2"></span></p>
-                <p class="text-gray-700 mb-2"><strong class="font-semibold text-blue-700">Grammatical Range and Accuracy:</strong> <span id="grammaticalAccuracy" class="ml-2"></span></p>
+                <div class="mb-4">
+                    <p class="text-gray-700 mb-2"><strong class="font-semibold text-blue-700">Task Achievement:</strong> <span id="taskAchievementScore" class="ml-2 font-bold"></span></p>
+                    <p class="text-gray-700"><strong class="font-semibold text-blue-700">Suggestions:</strong> <span id="taskAchievementSuggestions" class="ml-2"></span></p>
+                </div>
+                <div class="mb-4">
+                    <p class="text-gray-700 mb-2"><strong class="font-semibold text-blue-700">Coherence and Cohesion:</strong> <span id="coherenceCohesionScore" class="ml-2 font-bold"></span></p>
+                    <p class="text-gray-700"><strong class="font-semibold text-blue-700">Suggestions:</strong> <span id="coherenceCohesionSuggestions" class="ml-2"></span></p>
+                </div>
+                <div class="mb-4">
+                    <p class="text-gray-700 mb-2"><strong class="font-semibold text-blue-700">Lexical Resource:</strong> <span id="lexicalResourceScore" class="ml-2 font-bold"></span></p>
+                    <p class="text-gray-700"><strong class="font-semibold text-blue-700">Suggestions:</strong> <span id="lexicalResourceSuggestions" class="ml-2"></span></p>
+                </div>
+                <div class="mb-4">
+                    <p class="text-gray-700 mb-2"><strong class="font-semibold text-blue-700">Grammatical Range and Accuracy:</strong> <span id="grammaticalAccuracyScore" class="ml-2 font-bold"></span></p>
+                    <p class="text-gray-700"><strong class="font-semibold text-blue-700">Suggestions:</strong> <span id="grammaticalAccuracySuggestions" class="ml-2"></span></p>
+                </div>
                 <p class="text-gray-700 mt-4"><strong class="font-semibold text-blue-700">Overall Feedback:</strong> <span id="overallFeedback" class="ml-2"></span></p>
-        </div>
+            </div>
+        <div id="history" class="mt-10 p-6 bg-gray-50 rounded-lg shadow-inner border border-gray-200 hidden">
+            <div class="flex justify-between items-center mb-5">
+                <h2 class="text-2xl font-bold text-gray-800">Essay History</h2>
+                <button id="clearHistoryButton" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 transition duration-150 ease-in-out text-sm">
+                    Clear History
+                </button>
+            </div>
+            <div id="historyContainer"></div>
         </div>
     </div>
 
