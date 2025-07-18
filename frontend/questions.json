@@ -8,6 +8,14 @@
     {
       "id": 2,
       "question": "The two maps below show an island, before and after the construction of some tourist facilities. Summarise the information by selecting and reporting the main features, and make comparisons where relevant."
+    },
+    {
+      "id": 3,
+      "question": "The table below shows the proportion of different categories of families living in poverty in Australia in 1999. Summarise the information by selecting and reporting the main features, and make comparisons where relevant."
+    },
+    {
+      "id": 4,
+      "question": "The diagram below shows how a solar panel works to heat water. Summarise the information by selecting and reporting the main features, and make comparisons where relevant."
     }
   ],
   "task2": [
@@ -18,6 +26,14 @@
     {
       "id": 2,
       "question": "Some people think that all university students should study whatever they like. Others believe that they should only be allowed to study subjects that will be useful in the future, such as those related to science and technology. Discuss both these views and give your own opinion."
+    },
+    {
+      "id": 3,
+      "question": "In many countries, the proportion of older people is steadily increasing. Does this trend have more positive or negative effects on society?"
+    },
+    {
+      "id": 4,
+      "question": "Some people believe that it is good to share as much information as possible in the workplace. Others believe that it is better to keep certain information to themselves. Discuss both views and give your own opinion."
     }
   ]
 }
