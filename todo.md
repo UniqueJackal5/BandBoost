@@ -8,6 +8,7 @@
 5. Implement sample questions database for Writing Task 1 and Task 2
 6. Add detailed scoring breakdown with specific improvement suggestions
 7. Create progress tracking for multiple essay attempts
+8. Add timed writing feature (simulate real IELTS conditions)
 
 ## 🔄 In Progress
 1. UI improvements and responsive design
@@ -15,10 +16,10 @@
 ## 📋 Upcoming Tasks (Writing Section Focus)
 
 ### High Priority
-1. Add timed writing feature (simulate real IELTS conditions)
-2. Implement sample questions database for Writing Task 1 and Task 2 ✅ (More questions added)
-3. Add detailed scoring breakdown with specific improvement suggestions
-4. Create progress tracking for multiple essay attempts
+
+1. Implement sample questions database for Writing Task 1 and Task 2 ✅ (More questions added)
+2. Add detailed scoring breakdown with specific improvement suggestions
+3. Create progress tracking for multiple essay attempts
 
 ### Medium Priority
 1. Implement save/export functionality for essays and feedback
