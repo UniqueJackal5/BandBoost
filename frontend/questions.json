@@ -16,6 +16,14 @@
     {
       "id": 4,
       "question": "The diagram below shows how a solar panel works to heat water. Summarise the information by selecting and reporting the main features, and make comparisons where relevant."
+    },
+    {
+      "id": 5,
+      "question": "The chart below shows the amount of money per week spent on fast food in Britain from 1970 to 1990. Summarise the information by selecting and reporting the main features, and make comparisons where relevant."
+    },
+    {
+      "id": 6,
+      "question": "The diagram below shows the life cycle of a salmon. Summarise the information by selecting and reporting the main features, and make comparisons where relevant."
     }
   ],
   "task2": [
@@ -34,6 +42,14 @@
     {
       "id": 4,
       "question": "Some people believe that it is good to share as much information as possible in the workplace. Others believe that it is better to keep certain information to themselves. Discuss both views and give your own opinion."
+    },
+    {
+      "id": 5,
+      "question": "Some people think that children should be taught to be good citizens and should not be allowed to use the internet. Others believe that children should be allowed to use the internet freely. Discuss both views and give your own opinion."
+    },
+    {
+      "id": 6,
+      "question": "Some people believe that it is important for children to learn about their own culture and history. Others believe that it is more important for children to learn about other cultures and histories. Discuss both views and give your own opinion."
     }
   ]
 }
