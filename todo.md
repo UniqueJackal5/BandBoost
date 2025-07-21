@@ -11,7 +11,7 @@
 8. Add timed writing feature (simulate real IELTS conditions)
 
 ## 🔄 In Progress
-1. UI improvements and responsive design
+1. 
 
 ## 📋 Upcoming Tasks (Writing Section Focus)
 
