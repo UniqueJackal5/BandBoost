@@ -11,7 +11,7 @@
 8. Add timed writing feature (simulate real IELTS conditions)
 
 ## 🔄 In Progress
-1. 
+1.  Implement sample questions database for Writing Task 1 and Task 2 ✅ (More questions added)
 
 ## 📋 Upcoming Tasks (Writing Section Focus)
 
