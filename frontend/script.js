@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const historyContainer = document.getElementById('historyContainer');
     const clearHistoryButton = document.getElementById('clearHistoryButton');
     const viewHistoryButton = document.getElementById('viewHistoryButton');
+    const stopButton = document.getElementById('stopButton');
 
     let timerInterval;
     let timeRemaining = 2400; // 40 minutes in seconds
@@ -53,8 +54,8 @@ document.addEventListener('DOMContentLoaded', () => {
     startButton.addEventListener('click', () => {
         userEssayInput.disabled = false;
         userEssayInput.focus();
-        startButton.disabled = true;
-        startButton.classList.add('opacity-50', 'cursor-not-allowed');
+        startButton.classList.add('hidden');
+        stopButton.classList.remove('hidden');
 
         timerInterval = setInterval(() => {
             timeRemaining--;
@@ -91,6 +92,10 @@ document.addEventListener('DOMContentLoaded', () => {
         // Stop the timer if it's running
         if (timerInterval) {
             clearInterval(timerInterval);
+            stopButton.classList.add('hidden');
+            startButton.classList.remove('hidden');
+            timeRemaining = 2400; // Reset timer
+            updateTimerDisplay();
         }
 
         try {
@@ -182,6 +187,15 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             alert('You have no essay history yet. Analyze an essay to create history.');
         }
+    });
+
+    stopButton.addEventListener('click', () => {
+        clearInterval(timerInterval);
+        timeRemaining = 2400; // Reset timer
+        updateTimerDisplay();
+        userEssayInput.disabled = true;
+        startButton.classList.remove('hidden');
+        stopButton.classList.add('hidden');
     });
 
     // Initialize

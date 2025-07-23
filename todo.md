@@ -4,7 +4,7 @@
 1. Basic UI for essay input and feedback display
 2. Backend integration with Google Gemini API
 3. Core feedback functionality for writing tasks
-4. Add timed writing feature (simulate real IELTS conditions)
+4.1. Add timed writing feature (simulate real IELTS conditions) ✅
 5. Implement sample questions database for Writing Task 1 and Task 2
 6. Add detailed scoring breakdown with specific improvement suggestions
 7. Create progress tracking for multiple essay attempts
