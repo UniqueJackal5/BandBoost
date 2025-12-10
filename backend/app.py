@@ -28,7 +28,7 @@ def analyze_essay():
     word_count = len(user_essay.split())
 
     try:
-        model = genai.GenerativeModel('gemini-1.5-flash')
+        model = genai.GenerativeModel('gemini-flash-latest')
         prompt = f"""You are an AI assistant specialized in evaluating IELTS Academic Writing essays. Your goal is to act as a highly experienced IELTS examiner. Provide a band score and comprehensive, constructive feedback based *strictly* on the official IELTS public band descriptors.
 
 Task Question: {task_question}
