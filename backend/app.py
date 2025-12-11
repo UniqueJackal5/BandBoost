@@ -8,7 +8,7 @@ from flask_cors import CORS
 load_dotenv()
 
 app = Flask(__name__)
-CORS(app, resources={r"/analyze": {"origins": "*"}})
+CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 genai.configure(api_key=os.environ.get("GEMINI_API_KEY"))
 
@@ -16,7 +16,7 @@ genai.configure(api_key=os.environ.get("GEMINI_API_KEY"))
 def home():
     return "BandBoost Backend is running!"
 
-@app.route('/analyze', methods=['POST'])
+@app.route('/api/analyze', methods=['POST'])
 def analyze_essay():
     data = request.get_json()
     task_question = data.get('task_question')
